@@ -1,8 +1,7 @@
-![Auto Assign](https://github.com/BMW Software Engineering/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
+This repo is under construction.
 
-![Proof HTML](https://github.com/BMW Software Engineering/demo-repository/actions/workflows/proof-html.yml/badge.svg)
-
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
-
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+This repository contains a demonstration of applying [lobster](https://github.com/bmw-software-engineering/lobster) to the following:
+- python code
+- python tests
+- codebeamer
+- C++
