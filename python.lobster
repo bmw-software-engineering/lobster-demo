@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "tag": "python software.hello",
+      "location": {
+        "kind": "file",
+        "file": "./software.py",
+        "line": 1,
+        "column": null
+      },
+      "name": "software.hello",
+      "messages": [],
+      "just_up": [],
+      "just_down": [],
+      "just_global": [],
+      "language": "Python",
+      "kind": "Function"
+    }
+  ],
+  "generator": "lobster_python",
+  "schema": "lobster-imp-trace",
+  "version": 3
+}
+

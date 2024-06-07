@@ -1,0 +1,42 @@
+package vanillaEg
+
+Requirement trlc {
+  desc = "Treat Requirements Like Code"
+}
+
+Requirement lobster {
+  desc = "Lightweight Open BMW Software Traceability Evidence Report"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Constant WHEEL_COUNT {
+//   value = 3
+// }
+
+// Tool TRLC {
+//   vendor  = "BMW AG"
+//   url     = "https://github.com/bmw-software-engineering/trlc/"
+// }
+
+// Tool LOBSTER {
+//   vendor  = "BMW AG"
+//   url     = "https://github.com/bmw-software-engineering/lobster/"
+// }
