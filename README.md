@@ -57,23 +57,27 @@ For example: `trlc.lobster`, `python.lobser`, `cpp.lobster`, `codebeamer.lobser`
 
 * `trlc`
 ```lobster-trlc . --config-file="lobster-trlc.conf" --out="trlc.lobster"```
+This is the link for lobster-tool-trlc -
 [Our lobster repository package - lobster-tool-trlc](https://github.com/bmw-software-engineering/lobster/tree/main/packages/lobster-tool-trlc#readme)
-* 1. Annotations for trlc - lobster-trace is present inside the function body. 
+1. Annotations for trlc - lobster-trace is present inside the function body. 
 
 * `python`
 ```lobster-python .  --out="python.lobster"```
+This is the link for lobster-tool-python -
 [Our lobster repository package - lobster-tool-python](https://github.com/bmw-software-engineering/lobster/tree/main/packages/lobster-tool-python#readme)
-* 1. Annotations for python - lobster-trace is present inside the function body.
+1. Annotations for python - lobster-trace is present inside the function body.
 
 * `cpp`
 ```lobster-cpp . --clang-tidy="../llvm-project/build/bin/clang-tidy" --out="cpp.lobster"```
+This is the link for lobster-tool-cpp -
 [Our lobster repository package - lobster-tool-cpp](https://github.com/bmw-software-engineering/lobster/tree/main/packages/lobster-tool-cpp#readme)
-* 1. Annotations for cpp - lobster-trace is present inside the function body.
+1. Annotations for cpp - lobster-trace is present inside the function body.
 
 * `codebeamer`
 ```lobser-codebeamer . --out=codebeamer.lobster```
+This is the link for lobster-tool-codebeamer -
 [Our lobster repository package - lobster-tool-codebeamer](https://github.com/bmw-software-engineering/lobster/tree/main/packages/lobster-tool-codebeamer#readme)
-* 1. Annotations for codebeamer - lobster-trace is present outside the function body.
+1. Annotations for codebeamer - lobster-trace is present outside the function body.
 
 * 2. After generating the .lobster file next step is to generate the `report.lobster` file, which has all the information about the requirement, implementation, activity.
 
