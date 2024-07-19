@@ -5,8 +5,10 @@ policy. The syntax is fairly simple and best explained by example.
  
  
 ## Configuration:
+
 * A lobster config file `lobster.conf`
 In lobster.conf file declaration might look like this:
+
 ```
 requirements "Requirements"{
  source: "trlc.lobster";
