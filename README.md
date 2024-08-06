@@ -5,8 +5,10 @@ policy. The syntax is fairly simple and best explained by example.
  
  
 ## Configuration:
-* A lobster config file `lobster.config`
-In lobster.config file declaration might look like this:
+
+* A lobster config file `lobster.conf`
+In lobster.conf file declaration might look like this:
+
 ```
 requirements "Requirements"{
  source: "trlc.lobster";
@@ -87,9 +89,20 @@ This is the link for lobster-tool-codebeamer -
 
 ```lobster-html-report report.lobster --out="tracing.html"```
 
+###  Clang-tidy File Generation
 
+* To generate the clang-tidy file, make sure that your apt is working well on wsl/Linux env.
 
+* Clone this repository - `https://github.com/bmw-software-engineering/llvm-project`
 
+* Below 2 dependencies required for clang-tidy creation.
+  1. `sudo apt install cmake`
+  2. `sudo apt install ninja-build`
 
+* Below 2 commands need to execute to generate the build folder.
+  1. `cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS='clang;clang-tools-extra' -DCMAKE_BUILD_TYPE=Release`
+  2. `cmake --build build`
 
+* Once you generate the build folder you can see the clang-tidy file in `./build/bin` folder.
 
+* To generate the cpp.lobster file, you need to make sure that your llvm-project and lobster-demo project should be in same directory.
