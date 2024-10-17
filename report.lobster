@@ -17,7 +17,8 @@
           },
           "name": "vanillaEg.trlc",
           "messages": [
-            "missing reference to code"
+            "missing reference to code",
+            "missing reference to unittests"
           ],
           "just_up": [],
           "just_down": [],
@@ -25,28 +26,31 @@
           "tracing_status": "MISSING",
           "framework": "TRLC",
           "kind": "Requirement",
-          "text": "Treat Requirements Like Code",
+          "text": "Some requirements text for type trlc, eg. this function must do X Y",
           "status": null
         },
         {
-          "tag": "req vanillaEg.lobster",
+          "tag": "req vanillaEg.OutputValue",
           "location": {
             "kind": "file",
             "file": "./main.trlc",
             "line": 7,
             "column": 13
           },
-          "name": "vanillaEg.lobster",
-          "messages": [
-            "missing reference to code"
-          ],
+          "name": "vanillaEg.OutputValue",
+          "messages": [],
           "just_up": [],
           "just_down": [],
           "just_global": [],
-          "tracing_status": "MISSING",
+          "ref_up": [],
+          "ref_down": [
+            "python software.intValue",
+            "pyunit unittests.TestIntValue.test_return_value"
+          ],
+          "tracing_status": "OK",
           "framework": "TRLC",
           "kind": "Requirement",
-          "text": "Lightweight Open BMW Software Traceability Evidence Report",
+          "text": "Return value from function must return an integer value",
           "status": null
         },
         {
@@ -61,7 +65,8 @@
           },
           "name": "traffic light detection",
           "messages": [
-            "missing reference to code"
+            "missing reference to code",
+            "missing reference to unittests"
           ],
           "just_up": [],
           "just_down": [],
@@ -73,7 +78,7 @@
           "status": "Valid"
         }
       ],
-      "coverage": 0.0
+      "coverage": 33.333333333333336
     },
     {
       "name": "code",
@@ -83,12 +88,13 @@
           "tag": "python software.hello",
           "location": {
             "kind": "file",
-            "file": "./software.py",
+            "file": "software.py",
             "line": 1,
             "column": null
           },
           "name": "software.hello",
           "messages": [
+            "unknown tracing target req SomeIdentifier",
             "missing up reference"
           ],
           "just_up": [],
@@ -97,9 +103,79 @@
           "tracing_status": "MISSING",
           "language": "Python",
           "kind": "Function"
+        },
+        {
+          "tag": "python software.intValue",
+          "location": {
+            "kind": "file",
+            "file": "software.py",
+            "line": 5,
+            "column": null
+          },
+          "name": "software.intValue",
+          "messages": [],
+          "just_up": [],
+          "just_down": [],
+          "just_global": [],
+          "ref_up": [
+            "req vanillaEg.OutputValue"
+          ],
+          "ref_down": [],
+          "tracing_status": "OK",
+          "language": "Python",
+          "kind": "Function"
         }
       ],
-      "coverage": 0.0
+      "coverage": 50.0
+    },
+    {
+      "name": "unittests",
+      "kind": "activity",
+      "items": [
+        {
+          "tag": "pyunit unittests.TestIntValue.test_return_value",
+          "location": {
+            "kind": "file",
+            "file": "./unittests.py",
+            "line": 5,
+            "column": null
+          },
+          "name": "unittests.TestIntValue.test_return_value",
+          "messages": [],
+          "just_up": [],
+          "just_down": [],
+          "just_global": [],
+          "ref_up": [
+            "req vanillaEg.OutputValue"
+          ],
+          "ref_down": [],
+          "tracing_status": "OK",
+          "framework": "PyUnit",
+          "kind": "Test",
+          "status": null
+        },
+        {
+          "tag": "pyunit unittests.TestIntValue.test_return_value2",
+          "location": {
+            "kind": "file",
+            "file": "./unittests.py",
+            "line": 10,
+            "column": null
+          },
+          "name": "unittests.TestIntValue.test_return_value2",
+          "messages": [
+            "missing up reference"
+          ],
+          "just_up": [],
+          "just_down": [],
+          "just_global": [],
+          "tracing_status": "MISSING",
+          "framework": "PyUnit",
+          "kind": "Test",
+          "status": null
+        }
+      ],
+      "coverage": 50.0
     }
   ],
   "policy": {
@@ -124,6 +200,9 @@
       "breakdown_requirements": [
         [
           "code"
+        ],
+        [
+          "unittests"
         ]
       ]
     },
@@ -136,6 +215,22 @@
       "source": [
         {
           "file": "python.lobster",
+          "filters": []
+        }
+      ],
+      "needs_tracing_up": true,
+      "needs_tracing_down": false,
+      "breakdown_requirements": []
+    },
+    "unittests": {
+      "name": "unittests",
+      "kind": "activity",
+      "traces": [
+        "Requirements"
+      ],
+      "source": [
+        {
+          "file": "unittests.lobster",
           "filters": []
         }
       ],

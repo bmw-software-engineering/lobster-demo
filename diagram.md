@@ -1,6 +1,8 @@
 ```mermaid
-graph TD
+graph LR
+    %% First, fix the main structure to enforce vertical alignment
     subgraph "Converter-Tools"
+        direction TB
         A1[Lobster-python]
         A2[Lobster-trlc]
         A3[Lobster-json]
@@ -8,44 +10,45 @@ graph TD
     end
  
     subgraph ".lobster json schema"
+        direction TB
         B1[Python.lobster]
         B2[Trlc.lobster]
         B3[Json.lobster]
         B4[Cpp.lobster]
     end
  
-    subgraph Renderer
+    %% Create a subgraph to enforce vertical ordering of Lobster-online-report, Lobster-report -> report.lobster, and Tracing policy -> lobster.config
+    subgraph "Main Flow"
+        direction TB
+        D1[Lobster-online-report]
+        D1 ---> D2
+        D2[Lobster-report -> report.lobster]
+        D3[Tracing policy -> lobster.config]
+        D3 ---> D2
+    end
+ 
+    subgraph "Renderer"
+        direction TB
         C1[html]
         C2[CI]
         C3["?"]
     end
  
-    B1 --> D1[Lobster-online-report]
-    B2 --> D1
-    B3 --> D1
-    B4 --> D1
+    %% Main connections
+    A1 ---> B1
+    A2 ---> B2
+    A3 ---> B3
+    A4 ---> B4
  
-    D1 --> C1
-    D1 --> C2
-    D1 --> C3
-    D2[Lobster-report -> report.lobster]
-    D1 --> D2
-    D2 --> C1
-    D2 --> C2
-    D2 --> C3
-    E1[Tracing policy -> lobster.config]
-    E1 --> D2
-```
-
-break
-
-graph TD;
-     A-->B;
+    %% Connect all json schema elements to Lobster-report -> report.lobster
+    B1 ----> D2
+    B2 ----> D2
+    B3 ----> D2
+    B4 ----> D2
  
- break 2
-
-```mermaid
-graph TD;
-     A-->B;
+    %% Connect Lobster-report -> report.lobster to renderers
+    D2 ---> C1
+    D2 ---> C2
+    D2 ---> C3
  ```
  

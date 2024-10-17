@@ -1,11 +1,11 @@
 package vanillaEg
 
 Requirement trlc {
-  desc = "Treat Requirements Like Code"
+  desc = "Some requirements text for type trlc, eg. this function must do X Y"
 }
 
-Requirement lobster {
-  desc = "Lightweight Open BMW Software Traceability Evidence Report"
+Requirement OutputValue {
+  desc = "Return value from function must return an integer value"
 }
 
 

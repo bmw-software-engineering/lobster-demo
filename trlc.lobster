@@ -15,25 +15,25 @@
       "just_global": [],
       "framework": "TRLC",
       "kind": "Requirement",
-      "text": "Treat Requirements Like Code",
+      "text": "Some requirements text for type trlc, eg. this function must do X Y",
       "status": null
     },
     {
-      "tag": "req vanillaEg.lobster",
+      "tag": "req vanillaEg.OutputValue",
       "location": {
         "kind": "file",
         "file": "./main.trlc",
         "line": 7,
         "column": 13
       },
-      "name": "vanillaEg.lobster",
+      "name": "vanillaEg.OutputValue",
       "messages": [],
       "just_up": [],
       "just_down": [],
       "just_global": [],
       "framework": "TRLC",
       "kind": "Requirement",
-      "text": "Lightweight Open BMW Software Traceability Evidence Report",
+      "text": "Return value from function must return an integer value",
       "status": null
     }
   ],
