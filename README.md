@@ -101,7 +101,7 @@ This is the link for lobster-tool-codebeamer -
 
 * Below 2 commands need to execute to generate the build folder.
   1. `cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS='clang;clang-tools-extra' -DCMAKE_BUILD_TYPE=Release`
-  2. `cmake --build build`
+  2. `cmake --build build --target clang-tidy`
 
 * Once you generate the build folder you can see the clang-tidy file in `./build/bin` folder.
 
