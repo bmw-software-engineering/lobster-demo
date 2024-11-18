@@ -1,36 +1,16 @@
 # LOBSTER Demo Example
 
-A lobster config file (by default `lobster.conf`) declares the tracing
-policy. The syntax is fairly simple and best explained by example.
- 
- 
-## Configuration:
+This repository contains a working simple example of what it can be done using the lobster tool to demonstrate software traceability
+and requirements coverage. Please consider reading the [lobster documentation](https://github.com/bmw-software-engineering/lobster/blob/documentation/improve_documentation/README.md), [configuration files](https://github.com/bmw-software-engineering/lobster/blob/documentation/improve_documentation/documentation/config_files.md) and the [common interchange format](https://github.com/bmw-software-engineering/lobster/blob/documentation/improve_documentation/documentation/schemas.md).
 
-* A lobster config file `lobster.conf`
-In lobster.conf file declaration might look like this:
+> ### 💡 Reminder
+> To test this demo, do not forget to install the needed tools as explained in the [lobster repository](https://github.com/bmw-software-engineering/lobster/blob/documentation/improve_documentation/README.md#installing)
 
-```
-requirements "Requirements"{
- source: "trlc.lobster";
-}
-```
+## LOBSTER config file
 
-### Attributes:
+A lobster config file (by default `lobster.conf`) declares the tracing policy. The syntax is fairly simple and best explained by the following example step by step.
 
-* Source:  
-The source attribute assigns `trlc.lobster`, `python.lobster` file.
-
-* trace to:
-The trace to attribute declares the trace to: "Requirements"; This declares that the items in this level are expected to be linked to items from report.
-
-```
-implementation "code" {
-  source: "python.lobster";
-  trace to: "Requirements";
-}
-```
-
-### Levels:
+## Configuration & levels:
 
 The core feature is an item level, and there are three kinds:
 
@@ -38,24 +18,65 @@ The core feature is an item level, and there are three kinds:
 * implementation (for things like code or models)
 * activity (for things like tests, proofs, argumentation, ...)
 
-````
-requirements "Requirements"{
+In the `lobster.conf` file the declaration of the three levels might look like this:
+
+```
+requirements "Several code requirements"{
  source: "trlc.lobster";
+ source: "codebeamer.lobster";
 }
 
-implementation "code" {
-  source: "python.lobster";
-  trace to: "Requirements";
+implementation "Source code"{
+ source: "software.lobster";
+ source: "software2.lobster";
 }
-````
 
+activity "Tests of source code"{
+ source: "test_software.lobster";
+ source: "test_software2.lobster";
+}
+```
 
+### Level attributes explanation:
+
+For the levels there are the attributes. More on this topic in the [lobster repository](https://github.com/bmw-software-engineering/lobster/blob/documentation/improve_documentation/documentation/config_files.md)
+
+* Source:  
+The source attribute assigns `trlc.lobster`, `python.lobster`, `python2.lobster` and `python_tests.lobster` as source files.
+
+* trace to:
+The trace to attribute declares the trace to: "Several code requirements" level; This declares that the items in this level are expected to be linked to items from report.
+
+* requires:
+Possible ways to verify a requirement.
+
+```
+requirements "Several code requirements"{
+ source: "trlc.lobster";
+ source: "codebeamer.lobster";
+ requires: "Tests of source code";
+}
+
+implementation "Source code"{
+ source: "software.lobster";
+ source: "software2.lobster";
+ trace to: "Several code requirements";
+}
+
+activity "Tests of source code"{
+ source: "test_software.lobster";
+ source: "test_software2.lobster";
+ trace to: "Several code requirements";
+}
+```
 ##  Tracing .html File Generation
 
-In order to generate the `tracing.html` file we need to execute below scripts in sequential order
+In order to generate the `tracing.html` file we need first to create the input files *.lobster. This is achieved using the source codes with their traces and the several lobster tools. This [diagram](https://github.com/bmw-software-engineering/lobster/blob/documentation/improve_documentation/README.md#workflow-of-lobster) shows the complete workflow of lobster.
+
+Execute below scripts in sequential order
 
 * 1. In our vanilla example we used trlc requirement, python implementation, cpp implementation and codebeamer. For that we need to generate .lobster file. 
-For example: `trlc.lobster`, `python.lobser`, `cpp.lobster`, `codebeamer.lobser`
+For example: `trlc.lobster`, `python.lobster`, `cpp.lobster`, `codebeamer.lobster`...
 
 * `trlc`
 ```lobster-trlc . --config-file="lobster-trlc.conf" --out="trlc.lobster"```
@@ -76,7 +97,7 @@ This is the link for lobster-tool-cpp -
 1. Annotations for cpp - lobster-trace is present inside the function body.
 
 * `codebeamer`
-```lobser-codebeamer . --out=codebeamer.lobster```
+```lobster-codebeamer . --out=codebeamer.lobster```
 This is the link for lobster-tool-codebeamer -
 [Our lobster repository package - lobster-tool-codebeamer](https://github.com/bmw-software-engineering/lobster/tree/main/packages/lobster-tool-codebeamer#readme)
 1. Annotations for codebeamer - lobster-trace is present outside the function body.
@@ -91,7 +112,7 @@ This is the link for lobster-tool-codebeamer -
 
 ###  Clang-tidy File Generation
 
-* To generate the clang-tidy file, make sure that your apt is working well on wsl/Linux env.
+* To generate the clang-tidy file, which is needed for the cpp tool, make sure that your apt is working well on WSL (Windows Subsystem for Linux) or use a Linux environment.
 
 * Clone this repository - `https://github.com/bmw-software-engineering/llvm-project`
 

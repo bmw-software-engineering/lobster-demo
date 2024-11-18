@@ -1,42 +1,14 @@
 package vanillaEg
 
-Requirement trlc {
-  desc = "Some requirements text for type trlc, eg. this function must do X Y"
+Requirement make_sum {
+  desc = "Some requirements text, eg. this function must do a sum"
 }
 
-Requirement OutputValue {
+OutputRequirement value_int {
   desc = "Return value from function must return an integer value"
+  lobster_trace = 17044
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Constant WHEEL_COUNT {
-//   value = 3
-// }
-
-// Tool TRLC {
-//   vendor  = "BMW AG"
-//   url     = "https://github.com/bmw-software-engineering/trlc/"
-// }
-
-// Tool LOBSTER {
-//   vendor  = "BMW AG"
-//   url     = "https://github.com/bmw-software-engineering/lobster/"
-// }
+OutputRequirement value_decimal {
+  desc = "Return value from function must return a decimal value"
+}

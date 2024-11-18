@@ -33,7 +33,7 @@
       "just_global": [],
       "framework": "TRLC",
       "kind": "Requirement",
-      "text": "Return value from function must return an integer value",
+      "text": Module_requiremet Return value from function must return an integer value",
       "status": null
     }
   ],
