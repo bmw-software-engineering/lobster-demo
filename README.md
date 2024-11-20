@@ -73,6 +73,14 @@ activity "Tests of source code"{
 
 In order to generate the `tracing.html` file we need first to create the input files *.lobster and set up the tracing policy. This is achieved using the source codes, test source codes, requirements definitions with their traces and the several lobster convertion tools. This [diagram](https://github.com/bmw-software-engineering/lobster/blob/documentation/main/README.md#workflow-of-lobster) shows the complete workflow of lobster.
 
+> ### 💡 Reminder
+> If the lobster commands are executed manually and you don't use the Makefile, execute the asset generators for the html report. Otherwise it will not look pretty.
+
+```
+$ pip3 util/mkassets.py
+$ pip3 lobster/html/assets.py
+```
+
 Execute below scripts in the root folder in sequential order. Or use the target `tracing` from root folder.
 
 * 1. In our vanilla example we used trlc as requirement, python implementation, python activity (tests), cpp implementation and codebeamer. For that we need to generate *.lobster files using the convertion tools. 
