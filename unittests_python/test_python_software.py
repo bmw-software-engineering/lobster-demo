@@ -1,5 +1,5 @@
 import unittest
-from source_code_python.software import sum, notTracedFunction
+from source_code_python.python_software import sum, notTracedFunction
 
 class TestSoftware(unittest.TestCase):
     def test_sum(self):

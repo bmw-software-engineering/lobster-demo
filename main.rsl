@@ -6,5 +6,5 @@ type Requirement{
 }
 
 type OutputRequirement extends Requirement{
-    more_description String
+    more_description optional String
 }

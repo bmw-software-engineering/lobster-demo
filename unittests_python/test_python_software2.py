@@ -1,5 +1,5 @@
 import unittest
-from source_code_python.software2 import intValue, decValue
+from source_code_python.python_software2 import intValue, decValue
 
 class TestSoftware2(unittest.TestCase):
     def test_int_value(self):

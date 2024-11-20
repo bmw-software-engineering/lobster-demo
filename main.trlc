@@ -11,4 +11,5 @@ OutputRequirement value_int {
 
 OutputRequirement value_decimal {
   desc = "Return value from function must return a decimal value"
+  more_description = "Minimum two decimal places"
 }
