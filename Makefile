@@ -4,33 +4,23 @@ export LOBSTER_ROOT=$(PWD)
 export PYTHONPATH=$(LOBSTER_ROOT)
 export PATH:=$(LOBSTER_ROOT):$(PATH)
 
-.PHONY: tracing
+.PHONY: tracing report.lobster requirements.lobster code.lobster unit-tests.lobster
 
-lobster/html/assets.py: $(ASSETS) util/mkassets.py
-	util/mkassets.py lobster/html/assets.py $(ASSETS)
-
-tracing:
-	@rm -rf docs
-	@mkdir -p docs
-	@make lobster/html/assets.py
-	@make tracing-example
-
-tracing-example: report.lobster
+tracing: report.lobster
 	lobster-html-report ./lobster_output_files/report.lobster --out="tracing_2.html"
 	lobster-ci-report ./lobster_output_files/report.lobster
 
-report.lobster:	  lobster.conf \
-				  code.lobster \
-				  unit-tests.lobster \
-				  requirements.lobster \
+report.lobster:	lobster.conf \
+				code.lobster \
+				unit-tests.lobster \
+				requirements.lobster
 	lobster-report --lobster-config=lobster.conf --out="./lobster_output_files/report.lobster"
-	lobster-online-report ./lobster_output_files/report.lobster
+	lobster-online-report "lobster_output_files/report_copy.lobster"
 
 requirements.lobster: main.rsl main.trlc
 	lobster-trlc main.trlc main.rsl \
 	--config-file=lobster-trlc.conf \
 	--out lobster_output_files/trlc.lobster
-# lobster-codebeamer ./codebeamer --out=codebeamer.lobster
 
 code.lobster:
 	lobster-python ./source_code_python --out="./lobster_output_files/python_software.lobster"
@@ -38,6 +28,4 @@ code.lobster:
 
 unit-tests.lobster:
 	lobster-python ./unittests_python --activity  --out="./lobster_output_files/python_tests.lobster"
-
-
-# lobster-cpp ./unittests_cpp --clang-tidy="../llvm-project/build/bin/clang-tidy" --out="./lobster_output_files/cpp_tests.lobster"
+	lobster-cpp ./unittests_cpp --clang-tidy="../llvm-project/build/bin/clang-tidy" --out="./lobster_output_files/cpp_tests.lobster"

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "source_code_cpp/cpp_software2.hpp"
+#include "../source_code_cpp/cpp_software2.cpp"
 
 class TestSoftware2 : public ::testing::Test {};
 

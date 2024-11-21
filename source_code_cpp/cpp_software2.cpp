@@ -7,9 +7,3 @@ double decValue() {
     // lobster-trace: vanillaEg.output_value_decimal
     return 10.0;
 }
-
-int main() {
-    intValue();
-    decValue();
-    return 0;
-}

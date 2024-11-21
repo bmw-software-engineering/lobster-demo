@@ -9,9 +9,3 @@ int sum() {
 std::string notTracedFunction() {
     return "I am not being traced";
 }
-
-int main() {
-    sum();
-    notTracedFunction();
-    return 0;
-}
