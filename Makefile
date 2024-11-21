@@ -15,7 +15,7 @@ report.lobster:	lobster.conf \
 				unit-tests.lobster \
 				requirements.lobster
 	lobster-report --lobster-config=lobster.conf --out="./lobster_output_files/report.lobster"
-	lobster-online-report "lobster_output_files/report_copy.lobster"
+	lobster-online-report "lobster_output_files/report.lobster"
 
 requirements.lobster: main.rsl main.trlc
 	lobster-trlc main.trlc main.rsl \
