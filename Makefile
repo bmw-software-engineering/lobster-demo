@@ -1,13 +1,10 @@
-ASSETS=$(wildcard assets/*.svg)
-SYSTEM_PYTHONPATH:=$(PYTHONPATH)
 export LOBSTER_ROOT=$(PWD)
-export PYTHONPATH=$(LOBSTER_ROOT)
 export PATH:=$(LOBSTER_ROOT):$(PATH)
 
 .PHONY: tracing report.lobster requirements.lobster code.lobster unit-tests.lobster
 
 tracing: report.lobster
-	lobster-html-report ./lobster_output_files/report.lobster --out="tracing_2.html"
+	lobster-html-report ./lobster_output_files/report.lobster --out="tracing_example.html"
 	lobster-ci-report ./lobster_output_files/report.lobster
 
 report.lobster:	lobster.conf \
@@ -28,4 +25,4 @@ code.lobster:
 
 unit-tests.lobster:
 	lobster-python ./unittests_python --activity  --out="./lobster_output_files/python_tests.lobster"
-	lobster-cpp ./unittests_cpp --clang-tidy="../llvm-project/build/bin/clang-tidy" --out="./lobster_output_files/cpp_tests.lobster"
+	lobster-gtest ./unittests_cpp --out="./lobster_output_files/gtests.lobster"
