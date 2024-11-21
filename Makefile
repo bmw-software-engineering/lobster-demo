@@ -1,8 +1,6 @@
 export LOBSTER_ROOT=$(PWD)
 export PATH:=$(LOBSTER_ROOT):$(PATH)
 
-.PHONY: tracing report.lobster requirements.lobster code.lobster unit-tests.lobster
-
 tracing: report.lobster
 	lobster-html-report ./lobster_output_files/report.lobster --out="tracing_example.html"
 	lobster-ci-report ./lobster_output_files/report.lobster
