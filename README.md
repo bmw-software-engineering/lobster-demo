@@ -124,7 +124,7 @@ or for your CI:
 ```lobster-ci-report ./lobster_output_files/report.lobster```
 
 > ### 💡 Disclamer
-> This demo was created using lobster version `0.9.18` and TRLC version `2.0.0`
+> This demo was created using lobster version `0.9.19` and TRLC version `2.0.0`
 
 > ### 💡 Note
 > all the *.lobster files in this repository can be generated with our tools. For learning and comparison process they will be uploaded too. The same applies for the `tracing_example.html` file.
