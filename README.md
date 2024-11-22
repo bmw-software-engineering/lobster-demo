@@ -96,6 +96,9 @@ This is the link for lobster-tool-cpp -
 [Our lobster repository package - lobster-tool-cpp](https://github.com/bmw-software-engineering/lobster/tree/main/packages/lobster-tool-cpp#readme)
 1. Annotations for cpp - lobster-trace is present inside the function body.
 
+> ### 💡 Note
+> cpp uses `clang-tidy`. Please see [here](https://github.com/bmw-software-engineering/lobster/blob/main/documentation/user-manual.md#clang-tidy-file-generation) to create it.
+
 * `gtest` for cpp tests
 ```lobster-gtest ./unittests_cpp --out="./lobster_output_files/gtests.lobster"```
 This is the link for lobster-tool-cpp -
