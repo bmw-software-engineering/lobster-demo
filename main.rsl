@@ -1,35 +1,10 @@
 package vanillaEg
 
 type Requirement{
-    desc String    
+    desc String
+    lobster_trace optional Integer
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// type Constant{
-//     value Integer
-// }
-
-// type Tool{
-//     vendor Markup_String
-//     url Markup_String
-// }
+type OutputRequirement extends Requirement{
+    more_description optional String
+}

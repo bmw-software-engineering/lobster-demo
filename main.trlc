@@ -1,42 +1,15 @@
 package vanillaEg
 
-Requirement trlc {
-  desc = "Treat Requirements Like Code"
+Requirement make_sum {
+  desc = "Some requirements text, eg. this function must do a sum"
 }
 
-Requirement lobster {
-  desc = "Lightweight Open BMW Software Traceability Evidence Report"
+OutputRequirement value_int {
+  desc = "Return value from function must return an integer value"
+  lobster_trace = 17044
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Constant WHEEL_COUNT {
-//   value = 3
-// }
-
-// Tool TRLC {
-//   vendor  = "BMW AG"
-//   url     = "https://github.com/bmw-software-engineering/trlc/"
-// }
-
-// Tool LOBSTER {
-//   vendor  = "BMW AG"
-//   url     = "https://github.com/bmw-software-engineering/lobster/"
-// }
+OutputRequirement value_decimal {
+  desc = "Return value from function must return a decimal value"
+  more_description = "Minimum two decimal places"
+}
